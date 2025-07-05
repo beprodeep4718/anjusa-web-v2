@@ -1,0 +1,39 @@
+@font-face {
+  font-family: "playfair-display";
+  src: url("/fonts/PlayfairDisplay-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "inter";
+  src: url("/fonts/Inter.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "sigum";
+  src: url("/fonts/sigum.ttf");
+}
+
+@import "tailwindcss";
+@plugin "daisyui" {
+  themes: all;
+}
+
+@layer utilities {
+  .slider:hover .item {
+    @apply grayscale;
+  }
+  .slider:hover .item:hover {
+    @apply grayscale-0;
+  }
+  .outdoor-box:hover .outdoor-image {
+    @apply grayscale-0;
+  }
+}
+
+.slider {
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10% 90%,
+    transparent
+  );
+}
