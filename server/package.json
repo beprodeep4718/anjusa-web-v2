@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon app.js",
+    "start": "node app.js",
     "seed:admin": "node seeds/admin.seed.js",
     "seed:notices": "node seeds/notice.seed.js",
     "seed:all": "npm run seed:admin && npm run seed:notices"
