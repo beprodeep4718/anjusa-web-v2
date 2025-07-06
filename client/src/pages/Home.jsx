@@ -8,8 +8,8 @@ const Home = () => {
     <>
       <Hero />
       <NoticeSection />
-      <Outdoor />
       <InfiniteCarousel />
+      <Outdoor />
     </>
   );
 };

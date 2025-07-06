@@ -40,9 +40,9 @@ const InfiniteCarousel = () => {
               {[1, 2, 3, 4, 5, 6].map((num) => (
                 <div key={`img-${num}`} className="item flex items-center justify-center transition-all duration-500 ease-in-out">
                   <img 
-                    src={`https://picsum.photos/300/200?random=${num}`} 
+                    src={`images/artwork/img${num}.jpg`} 
                     alt={`Random image ${num}`} 
-                    className="w-full h-full object-cover rounded" 
+                    className="lg:w-[200px] w-[100px] h-full object-cover rounded" 
                   />
                 </div>
               ))}
@@ -51,9 +51,9 @@ const InfiniteCarousel = () => {
               {[1, 2, 3, 4, 5, 6].map((num) => (
                 <div key={`img-dup-${num}`} className="item flex items-center justify-center transition-all duration-500 ease-in-out">
                   <img 
-                    src={`https://picsum.photos/300/200?random=${num}`} 
+                    src={`images/artwork/img${num}.jpg`} 
                     alt={`Random image ${num}`} 
-                    className="w-full h-full object-cover rounded" 
+                    className="lg:w-[200px] w-[100px] h-full object-cover rounded" 
                   />
                 </div>
               ))}

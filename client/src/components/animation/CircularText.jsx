@@ -34,7 +34,7 @@ const CircularText = () => {
             ))}
           </p>
         </div>
-        <div className="text-3xl font-[playfair-display]">A</div>
+        <div className="text-3xl font-[playfair-display] tracking-wider">Anjusa</div>
       </div>
     </div>
   );
