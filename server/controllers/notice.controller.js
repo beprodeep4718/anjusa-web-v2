@@ -15,7 +15,7 @@ export const createNotice = async (req, res) => {
     if (image) {
       try {
         const uploadResponse = await cloudinary.uploader.upload(image, {
-          folder: "anjusan-notices/notices",
+          folder: "anjusa/noticesImages",
           resource_type: "image",
         });
         noticeData.image = {
