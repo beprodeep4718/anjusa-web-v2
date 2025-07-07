@@ -80,9 +80,9 @@ const Navbar = () => {
       <div className="navbar fixed border-b-[1px] bg-base-200 border-b-base-content z-10">
         <div className="absolute h-full w-[1px] bg-base-content top-0 right-20"></div>
         <div className="flex-1">
-          <a className="btn btn-ghost text-xl">
+          <Link to="/" className="btn btn-ghost text-xl">
             <img className="w-20 filter invert brightness-0" src="images/logo.png" alt="" />
-          </a>
+          </Link>
         </div>
         <div className="flex-none">
           <button 
