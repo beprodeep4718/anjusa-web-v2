@@ -35,25 +35,25 @@ const InfiniteCarousel = () => {
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-          <div ref={item} className="wrapper w-max flex gap-2">
+          <div ref={item} className="wrapper w-max max-h-[400px] flex gap-2">
             <div className="w-[100%] h-full flex gap-2">
-              {[1, 2, 3, 4, 5, 6].map((num) => (
-                <div key={`img-${num}`} className="item flex items-center justify-center transition-all duration-500 ease-in-out">
+              {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
+                <div key={`img-${num}`} className="item flex items-start justify-center transition-all duration-500 ease-in-out">
                   <img 
                     src={`images/artwork/img${num}.webp`} 
                     alt={`Random image ${num}`} 
-                    className="lg:w-[200px] w-[100px] h-full object-cover rounded" 
+                    className="lg:w-[200px] w-[100px] object-cover " 
                   />
                 </div>
               ))}
             </div>
             <div className="w-[100%] h-full flex gap-2">
-              {[1, 2, 3, 4, 5, 6].map((num) => (
-                <div key={`img-dup-${num}`} className="item flex items-center justify-center transition-all duration-500 ease-in-out">
+              {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
+                <div key={`img-dup-${num}`} className="item flex items-start justify-center transition-all duration-500 ease-in-out">
                   <img 
                     src={`images/artwork/img${num}.webp`} 
                     alt={`Random image ${num}`} 
-                    className="lg:w-[200px] w-[100px] h-full object-cover rounded" 
+                    className="lg:w-[200px] w-[100px] object-cover " 
                   />
                 </div>
               ))}
