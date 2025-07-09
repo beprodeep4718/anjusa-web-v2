@@ -11,7 +11,7 @@ const Footer = () => {
           {/* Gallery Info */}
           <div>
             <h3 className="text-2xl font-bold mb-4 font-[playfair-display]">Anjusa Art & Computer Academy</h3>
-            <p className="text-neutral-content/80 mb-6 font-[inter]">Curating exceptional artworks and fostering artistic expression since 2023.</p>
+            <p className="text-neutral-content/80 mb-6 font-[inter]">Curating exceptional artworks and fostering artistic expression since 2008.</p>
             <div className="flex space-x-3">
               {[
                 { icon: <Facebook size={18} strokeWidth={1.5} />, href: 'https://facebook.com' },
@@ -84,19 +84,15 @@ const Footer = () => {
             <address className="not-italic space-y-3 font-[inter]">
               <p className="flex items-center">
                 <MapPin size={16} strokeWidth={1.5} className="mr-2 text-primary" />
-                123 Gallery Street, Art District
+                Madhuban P, Rameswarpur P, West Bengal 713409
               </p>
               <p className="flex items-center">
                 <Mail size={16} strokeWidth={1.5} className="mr-2 text-primary" />
-                gallery@anjusa.com
+                ashim.anjusa@gmail.com
               </p>
               <p className="flex items-center">
                 <Phone size={16} strokeWidth={1.5} className="mr-2 text-primary" />
-                (123) 456-7890
-              </p>
-              <p className="flex items-center">
-                <Clock size={16} strokeWidth={1.5} className="mr-2 text-primary" />
-                Tue-Sun: 10am - 6pm
+                +91 9775550000
               </p>
             </address>
           </div>
