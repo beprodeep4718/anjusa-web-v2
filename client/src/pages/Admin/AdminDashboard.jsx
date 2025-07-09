@@ -5,17 +5,15 @@ import useImageUpload from '../../hooks/useImageUpload'
 import ProtectedRoute from '../../components/ProtectedRoute'
 
 // Admin Components
-import {
-  AdminSidebar,
-  AdminTopbar,
-  OverviewTab,
-  NoticesTable,
-  CreateNoticeModal,
-  EditNoticeModal,
-  ViewNoticeModal,
-  UserManagement,
-  AdminSettings
-} from '../../components/Admin'
+import AdminSidebar from '../../components/Admin/AdminSidebar'
+import AdminTopbar from '../../components/Admin/AdminTopbar'
+import OverviewTab from '../../components/Admin/OverviewTab'
+import NoticesTable from '../../components/Admin/NoticesTable'
+import CreateNoticeModal from '../../components/Admin/CreateNoticeModal'
+import EditNoticeModal from '../../components/Admin/EditNoticeModal'
+import ViewNoticeModal from '../../components/Admin/ViewNoticeModal'
+import UserManagement from '../../components/Admin/UserManagement'
+import AdminSettings from '../../components/Admin/AdminSettings'
 
 const AdminDashboard = () => {
   const { notices, isFetchingNotices, fetchNotices, createNotice, deleteNotice, updateNotice } = useNoticeStore()
