@@ -11,6 +11,7 @@ import Register from "./pages/Register.jsx";
 import AdminDashboard from "./pages/Admin/AdminDashboard.jsx";
 import PreviewNotice from "./components/PreviewNotice.jsx";
 import AllNotices from "./pages/AllNotices.jsx";
+import Cursor from "./components/animation/Cursor.jsx";
 
 const App = () => {
   const lenis = useLenis();
@@ -35,9 +36,11 @@ const App = () => {
   // List of routes where we want to hide Navbar/Footer
   const hideLayoutOn = ["/login", "/register", "/admin"];
   const hideLayout = hideLayoutOn.includes(location.pathname);
+  
 
   return (
-    <div className="bg-base-300">
+    <div className="bg-base-300 relative">
+      <Cursor />
       <ReactLenis
         root
         options={{

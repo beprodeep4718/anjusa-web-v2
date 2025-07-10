@@ -15,6 +15,9 @@ const Outdoor = () => {
       >
         Outdoor Classes
       </motion.h1>
+      <p className="text-center text-lg my-4 font-[inter] tracking-wider text-base-content">
+        Explore our outdoor classes and immerse yourself in nature.
+      </p>
       <div className="o-cont my-20 lg:px-4 py-6">
         {outdoor.map((item, index) => (
           <motion.div
@@ -31,6 +34,8 @@ const Outdoor = () => {
           >
             <div className="absolute h-[10px] w-[10px] -top-[5px] right-0 bg-base-content"></div>
             <div className="absolute h-[5px] w-[5px] -top-[2.5px] right-[2.5px] bg-base-300"></div>
+            <div className="absolute h-[10px] w-[10px] -top-[5px] left-0 bg-base-content"></div>
+            <div className="absolute h-[5px] w-[5px] -top-[2.5px] left-[2.5px] bg-base-300"></div>
             <div className="flex-1 ">
               <img
                 className="outdoor-image rounded-lg shadow-md h-full w-full lg:grayscale hover:grayscale-0 transition-all duration-300"
