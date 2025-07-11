@@ -31,7 +31,7 @@ const Cursor = () => {
     <>
       <div
         ref={cursorRef}
-        className="fixed top-0 left-0 w-[24px] h-[24px] border-2 border-base-content rounded-full z-50 "
+        className="fixed top-0 left-0 w-[24px] h-[24px] border-2 border-base-content rounded-full z-50 hidden pointer-events-none lg:block"
       ></div>
       <div
         ref={cursorRef2}
