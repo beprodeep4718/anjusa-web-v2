@@ -1,47 +1,47 @@
-import React, { useEffect, useState } from 'react'
-import { useParams, useNavigate, Link } from 'react-router-dom'
-import { ArrowLeft, Calendar, Eye, Tag, AlertCircle } from 'lucide-react'
-import useNoticeStore from '../store/noticeStore'
+import React, { useEffect, useState } from "react";
+import { useParams, useNavigate, Link } from "react-router-dom";
+import { ArrowLeft, Calendar, Eye, Tag, AlertCircle, ArrowRight } from "lucide-react";
+import useNoticeStore from "../store/noticeStore";
 
 const PreviewNotice = () => {
-  const { id } = useParams()
-  const navigate = useNavigate()
-  const { notices, fetchNotices, isFetchingNotices } = useNoticeStore()
-  const [notice, setNotice] = useState(null)
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const { notices, fetchNotices, isFetchingNotices } = useNoticeStore();
+  const [notice, setNotice] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const loadNotice = async () => {
       try {
-        setLoading(true)
-        
+        setLoading(true);
+
         // If notices are not loaded yet, fetch them
         if (notices.length === 0) {
-          await fetchNotices()
+          await fetchNotices();
         }
-        
+
         // Find the notice by ID
-        const foundNotice = notices.find(n => n._id === id)
-        
+        const foundNotice = notices.find((n) => n._id === id);
+
         if (foundNotice) {
-          setNotice(foundNotice)
-          setError(null)
+          setNotice(foundNotice);
+          setError(null);
         } else {
-          setError('Notice not found')
+          setError("Notice not found");
         }
       } catch (err) {
-        console.error('Error loading notice:', err)
-        setError('Failed to load notice')
+        console.error("Error loading notice:", err);
+        setError("Failed to load notice");
       } finally {
-        setLoading(false)
+        setLoading(false);
       }
-    }
+    };
 
     if (id) {
-      loadNotice()
+      loadNotice();
     }
-  }, [id, notices, fetchNotices])
+  }, [id, notices, fetchNotices]);
 
   if (loading || isFetchingNotices) {
     return (
@@ -51,7 +51,7 @@ const PreviewNotice = () => {
           <p className="mt-4 text-lg">Loading notice...</p>
         </div>
       </div>
-    )
+    );
   }
 
   if (error || !notice) {
@@ -61,16 +61,13 @@ const PreviewNotice = () => {
           <div className="card-body text-center">
             <AlertCircle className="w-16 h-16 mx-auto mb-4 text-error" />
             <h2 className="card-title text-error justify-center">
-              {error || 'Notice Not Found'}
+              {error || "Notice Not Found"}
             </h2>
             <p className="text-gray-500 mb-4">
               The notice you're looking for doesn't exist or has been removed.
             </p>
             <div className="card-actions justify-center">
-              <button 
-                className="btn btn-primary"
-                onClick={() => navigate('/')}
-              >
+              <button className="btn btn-primary" onClick={() => navigate("/")}>
                 <ArrowLeft className="w-4 h-4" />
                 Back to Home
               </button>
@@ -78,46 +75,59 @@ const PreviewNotice = () => {
           </div>
         </div>
       </div>
-    )
+    );
   }
 
   const formatDate = (dateString) => {
-    return new Date(dateString).toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit'
-    })
-  }
+    return new Date(dateString).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+  };
 
   const getPriorityColor = (priority) => {
     switch (priority) {
-      case 'high': return 'badge-error'
-      case 'medium': return 'badge-warning'
-      case 'low': return 'badge-success'
-      default: return 'badge-ghost'
+      case "high":
+        return "badge-error";
+      case "medium":
+        return "badge-warning";
+      case "low":
+        return "badge-success";
+      default:
+        return "badge-ghost";
     }
-  }
+  };
 
   const getTypeColor = (type) => {
     switch (type) {
-      case 'urgent': return 'badge-error'
-      case 'important': return 'badge-warning'
-      case 'event': return 'badge-info'
-      case 'general': return 'badge-ghost'
-      default: return 'badge-ghost'
+      case "urgent":
+        return "badge-error";
+      case "important":
+        return "badge-warning";
+      case "event":
+        return "badge-info";
+      case "general":
+        return "badge-ghost";
+      default:
+        return "badge-ghost";
     }
-  }
+  };
+
+  const getDownloadUrl = (url) => {
+    return url.replace("/upload/", `/upload/fl_attachment:notice-image/`);
+  };
 
   return (
     <div className="min-h-screen bg-base-200">
       {/* Navigation Bar */}
       <div className="navbar bg-base-100 shadow-sm sticky top-0 z-10">
         <div className="navbar-start">
-          <button 
+          <button
             className="btn btn-ghost btn-circle"
-            onClick={() => navigate('/')}
+            onClick={() => navigate("/")}
           >
             <ArrowLeft className="w-6 h-6" />
           </button>
@@ -145,7 +155,11 @@ const PreviewNotice = () => {
               <span className={`badge ${getPriorityColor(notice.priority)}`}>
                 {notice.priority} priority
               </span>
-              <span className={`badge ${notice.status === 'active' ? 'badge-success' : 'badge-warning'}`}>
+              <span
+                className={`badge ${
+                  notice.status === "active" ? "badge-success" : "badge-warning"
+                }`}
+              >
                 {notice.status}
               </span>
             </div>
@@ -176,8 +190,8 @@ const PreviewNotice = () => {
             {/* Image */}
             {notice.image && notice.image.secure_url && (
               <div className="mb-6">
-                <img 
-                  src={notice.image.secure_url} 
+                <img
+                  src={notice.image.secure_url}
                   alt={notice.title}
                   className="w-full h-auto rounded-lg shadow-md max-h-96 object-cover"
                 />
@@ -196,23 +210,24 @@ const PreviewNotice = () => {
             {/* Footer */}
             <div className="divider"></div>
             <div className="flex justify-between items-center lg:flex-row flex-col gap-4">
-              <div className="text-sm opacity-60">
-                Notice ID: {notice._id}
-              </div>
+              <div className="text-sm opacity-60">Notice ID: {notice._id}</div>
               <div className="flex gap-2">
-                <button 
+                <button
                   className="btn btn-outline"
-                  onClick={() => navigate('/')}
+                  onClick={() => navigate("/")}
                 >
                   <ArrowLeft className="w-4 h-4" />
                   Back to Home
                 </button>
-                <button 
-                  className="btn btn-primary"
-                  onClick={() => window.print()}
-                >
-                  Print Notice
-                </button>
+                {notice.image?.secure_url && (
+                  <a
+                    href={getDownloadUrl(notice.image.secure_url)}
+                    className="btn btn-primary"
+                  >
+                    Download Image
+                    <ArrowRight className="w-4 h-4 ml-1" />
+                  </a>
+                )}
               </div>
             </div>
           </div>
@@ -223,20 +238,28 @@ const PreviewNotice = () => {
           <h2 className="text-xl font-bold mb-4">Other Notices</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {notices
-              .filter(n => n._id !== notice._id && n.status === 'active')
+              .filter((n) => n._id !== notice._id && n.status === "active")
               .slice(0, 3)
               .map((relatedNotice) => (
-                <div 
+                <div
                   key={relatedNotice._id}
                   className="card bg-base-100 shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer"
                   onClick={() => navigate(`/notice/${relatedNotice._id}`)}
                 >
                   <div className="card-body p-4">
                     <div className="flex gap-2 mb-2">
-                      <span className={`badge badge-sm ${getTypeColor(relatedNotice.type)}`}>
+                      <span
+                        className={`badge badge-sm ${getTypeColor(
+                          relatedNotice.type
+                        )}`}
+                      >
                         {relatedNotice.type}
                       </span>
-                      <span className={`badge badge-sm ${getPriorityColor(relatedNotice.priority)}`}>
+                      <span
+                        className={`badge badge-sm ${getPriorityColor(
+                          relatedNotice.priority
+                        )}`}
+                      >
                         {relatedNotice.priority}
                       </span>
                     </div>
@@ -256,7 +279,7 @@ const PreviewNotice = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default PreviewNotice
+export default PreviewNotice;
