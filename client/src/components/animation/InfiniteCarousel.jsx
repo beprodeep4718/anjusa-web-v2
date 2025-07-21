@@ -37,7 +37,7 @@ const InfiniteCarousel = () => {
         >
           <div ref={item} className="wrapper w-max  flex gap-2">
             <div className="w-[100%] h-full flex gap-2">
-              {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
+              {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((num) => (
                 <div key={`img-${num}`} className="item flex items-start justify-center transition-all duration-500 ease-in-out">
                   <img 
                     src={`images/artwork/img${num}.webp`} 
@@ -48,7 +48,7 @@ const InfiniteCarousel = () => {
               ))}
             </div>
             <div className="w-[100%] h-full flex gap-2">
-              {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
+              {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((num) => (
                 <div key={`img-dup-${num}`} className="item flex items-start justify-center transition-all duration-500 ease-in-out">
                   <img 
                     src={`images/artwork/img${num}.webp`} 
