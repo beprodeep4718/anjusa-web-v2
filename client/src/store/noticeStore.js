@@ -5,16 +5,19 @@ const useNoticeStore = create((set) => ({
   notices: [],
   isFetchingNotices: false,
   fetchNotices: async () => {
-    set({ isFetchingNotices: true });
-    try {
-      const response = await axiosInstance.get("/notice");
-      set({ notices: response.data.notices || [] });
-    } catch (error) {
-      console.error("Error fetching notices:", error);
-    } finally {
-      set({ isFetchingNotices: false });
-    }
-  },
+  set({ isFetchingNotices: true });
+  try {
+    const response = await axiosInstance.get("/notice");
+    console.log("Notice response:", response.data);
+    set({ notices: Array.isArray(response.data.notices) ? response.data.notices : [] });
+  } catch (error) {
+    console.error("Error fetching notices:", error);
+    set({ notices: [] }); // ensure it's always an array
+  } finally {
+    set({ isFetchingNotices: false });
+  }
+},
+
   createNotice: async (noticeData) => {
     set({ isFetchingNotices: true });
     try {

@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { useStudentStore } from "../../store/studentStore";
-import { GraduationCap } from "lucide-react";
+import { GraduationCap, User, UserCircle } from "lucide-react";
 import StudentReceipt from "./StudentReceipt";
 
 const StudentManagement = () => {
@@ -151,13 +151,15 @@ const StudentManagement = () => {
                   <td>
                     <div className="avatar">
                       <div className="w-12 h-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                        <img
-                          src={
-                            student.profilePic ||
-                            "https://via.placeholder.com/100?text=No+Img"
-                          }
-                          alt={student.studentName}
-                        />
+                        {student.profilePic ? (
+                          <img
+                            src={student.profilePic}
+                            alt={student.studentName}
+                            className="w-12 h-12 rounded-full"
+                          />
+                        ) : (
+                          <UserCircle className="text-gray-400" size={48} />
+                        )}
                       </div>
                     </div>
                   </td>
@@ -281,10 +283,7 @@ const StudentManagement = () => {
                   {formData.profilePic ? (
                     <img src={formData.profilePic} alt="Profile preview" />
                   ) : (
-                    <img
-                      src="https://via.placeholder.com/100?text=Upload"
-                      alt="Placeholder"
-                    />
+                    <UserCircle className="text-gray-400" size={96} />
                   )}
                 </div>
               </div>
