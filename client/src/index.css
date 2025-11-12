@@ -27,7 +27,36 @@
   .outdoor-box:hover .outdoor-image {
     @apply grayscale-0;
   }
+  .nav-links li{
+    @apply px-4 py-2 text-base-content hover:text-base-300 hover:bg-base-content transition-colors duration-300;
+  }
 }
+
+@media print {
+  body * {
+    visibility: hidden !important;
+  }
+  .print-area,
+  .print-area * {
+    visibility: visible !important;
+  }
+  .print-area {
+    position: absolute !important;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%) !important;
+    width: 100% !important;
+    background: white !important;
+    box-shadow: none !important;
+  }
+
+  /* Remove background overlay */
+  .bg-black\/50 {
+    background: none !important;
+  }
+}
+
+
 
 .slider {
   mask-image: linear-gradient(

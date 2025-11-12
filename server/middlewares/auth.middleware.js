@@ -3,17 +3,24 @@ import User from "../models/user.model.js";
 
 export const authenticate = async (req, res, next) => {
   try {
-    const token = req.cookies.token || req.header("Authorization")?.replace("Bearer ", "");
-    
+    const token =
+      req.cookies.token || req.header("Authorization")?.replace("Bearer ", "");
+
     if (!token) {
-      return res.status(401).json({ message: "Access denied. No token provided." });
+      return res
+        .status(401)
+        .json({ message: "Access denied. No token provided." });
     }
 
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    const user = await User.findById(decoded.id).select("-password");
-    
+    const user = await User.findById(decoded.id)
+      .select("-password")
+      .populate("artworks");
+
     if (!user) {
-      return res.status(401).json({ message: "Invalid token. User not found." });
+      return res
+        .status(401)
+        .json({ message: "Invalid token. User not found." });
     }
 
     req.user = user;
@@ -32,13 +39,17 @@ export const authenticate = async (req, res, next) => {
 export const authorize = (...roles) => {
   return (req, res, next) => {
     if (!req.user) {
-      return res.status(401).json({ message: "Access denied. Please authenticate first." });
+      return res
+        .status(401)
+        .json({ message: "Access denied. Please authenticate first." });
     }
-    
+
     if (!roles.includes(req.user.role)) {
-      return res.status(403).json({ message: "Access denied. Insufficient permissions." });
+      return res
+        .status(403)
+        .json({ message: "Access denied. Insufficient permissions." });
     }
-    
+
     next();
   };
 };

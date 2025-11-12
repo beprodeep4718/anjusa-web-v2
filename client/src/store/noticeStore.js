@@ -8,7 +8,7 @@ const useNoticeStore = create((set) => ({
     set({ isFetchingNotices: true });
     try {
       const response = await axiosInstance.get("/notice");
-      set({ notices: response.data });
+      set({ notices: response.data.notices || [] });
     } catch (error) {
       console.error("Error fetching notices:", error);
     } finally {

@@ -1,5 +1,5 @@
 import React from 'react'
-import { BarChart3, FileText, Users, Settings } from 'lucide-react'
+import { BarChart3, FileText, Users, Settings, Brush, UserPen, GraduationCap } from 'lucide-react'
 
 const AdminSidebar = ({ activeTab, setActiveTab }) => {
   return (
@@ -12,7 +12,7 @@ const AdminSidebar = ({ activeTab, setActiveTab }) => {
         <ul className="menu p-4 space-y-2">
           <li>
             <a 
-              className={activeTab === 'overview' ? 'active' : ''}
+              className={activeTab === 'overview' ? 'bg-white/30' : ''}
               onClick={() => setActiveTab('overview')}
             >
               <BarChart3 className="w-5 h-5" />
@@ -21,7 +21,7 @@ const AdminSidebar = ({ activeTab, setActiveTab }) => {
           </li>
           <li>
             <a 
-              className={activeTab === 'notices' ? 'active' : ''}
+              className={activeTab === 'notices' ? 'bg-white/30' : ''}
               onClick={() => setActiveTab('notices')}
             >
               <FileText className="w-5 h-5" />
@@ -30,7 +30,7 @@ const AdminSidebar = ({ activeTab, setActiveTab }) => {
           </li>
           <li>
             <a 
-              className={activeTab === 'users' ? 'active' : ''}
+              className={activeTab === 'users' ? 'bg-white/30' : ''}
               onClick={() => setActiveTab('users')}
             >
               <Users className="w-5 h-5" />
@@ -39,7 +39,34 @@ const AdminSidebar = ({ activeTab, setActiveTab }) => {
           </li>
           <li>
             <a 
-              className={activeTab === 'settings' ? 'active' : ''}
+              className={activeTab === 'students' ? 'bg-white/30' : ''}
+              onClick={() => setActiveTab('students')}
+            >
+              <GraduationCap className="w-5 h-5" />
+              Students
+            </a>
+          </li>
+          <li>
+            <a 
+              className={activeTab === 'artworks' ? 'bg-white/30' : ''}
+              onClick={() => setActiveTab('artworks')}
+            >
+              <Brush className="w-5 h-5" />
+              Artworks
+            </a>
+          </li>
+          <li>
+            <a 
+              className={activeTab === 'pending_artists' ? 'bg-white/30' : ''}
+              onClick={() => setActiveTab('pending_artists')}
+            >
+              <UserPen className="w-5 h-5" />
+              Pending Artists
+            </a>
+          </li>
+          <li>
+            <a 
+              className={activeTab === 'settings' ? 'bg-white/30' : ''}
               onClick={() => setActiveTab('settings')}
             >
               <Settings className="w-5 h-5" />

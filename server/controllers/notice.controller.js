@@ -42,7 +42,7 @@ export const createNotice = async (req, res) => {
 export const getNotices = async (req, res) => {
   try {
     const notices = await Notice.find();
-    res.status(200).json(notices);
+    res.status(200).json({message: "notice send" , notices});
   } catch (error) {
     console.error("Error fetching notices:", error);
     res.status(500).json({ message: "Internal server error" });

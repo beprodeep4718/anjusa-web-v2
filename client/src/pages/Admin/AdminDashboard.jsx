@@ -14,6 +14,9 @@ import EditNoticeModal from '../../components/Admin/EditNoticeModal'
 import ViewNoticeModal from '../../components/Admin/ViewNoticeModal'
 import UserManagement from '../../components/Admin/UserManagement'
 import AdminSettings from '../../components/Admin/AdminSettings'
+import ArtworkManagement from '../../components/Admin/ArtworkManagement'
+import PendingArtists from '../../components/Admin/PendingArtists'
+import StudentManagement from '../../components/Admin/studentManagement'
 
 const AdminDashboard = () => {
   const { notices, isFetchingNotices, fetchNotices, createNotice, deleteNotice, updateNotice } = useNoticeStore()
@@ -187,6 +190,9 @@ const AdminDashboard = () => {
               {activeTab === 'users' && <UserManagement />}
               
               {activeTab === 'settings' && <AdminSettings user={user} />}
+              {activeTab === 'artworks' && <ArtworkManagement />}
+              {activeTab === 'students' && <StudentManagement />}
+              {activeTab === 'pending_artists' && <PendingArtists />}
             </main>
           </div>
 

@@ -100,33 +100,41 @@ const Navbar = () => {
         ref={menuRef}
         className="fixed top-16 right-0 w-1/2 h-full bg-base-200 shadow-lg z-20"
       >
-        <ul className="menu p-4 text-lg lg:text-5xl font-[inter] font-light space-y-4">
-          <li ref={el => menuItemsRef.current[0] = el}>
+        <ul className="nav-links p-6 px-8 text-lg lg:text-4xl font-[inter] font-light space-y-6 inline-flex flex-col">
+          <li ref={el => menuItemsRef.current[0] = el} onClick={toggleMenu}>
             <Link to="/">Home</Link>
           </li>
-          <li ref={el => menuItemsRef.current[1] = el}>
+          <li ref={el => menuItemsRef.current[1] = el} onClick={toggleMenu}>
             <Link to="/about">About</Link>
+          </li>
+          <li ref={el => menuItemsRef.current[2] = el} onClick={toggleMenu}>
+            <Link to ="/arkwork">Arkwork</Link>
           </li>
           {user ? (
             <>
-              <li ref={el => menuItemsRef.current[2] = el}>
+              <li ref={el => menuItemsRef.current[3] = el} onClick={toggleMenu}>
                 <Link to="/profile">Profile</Link>
               </li>
               {user.role === 'admin' && (
-                <li ref={el => menuItemsRef.current[3] = el}>
+                <li ref={el => menuItemsRef.current[4] = el} onClick={toggleMenu}>
                   <Link to="/admin">Admin Panel</Link>
                 </li>
               )}
-              <li ref={el => menuItemsRef.current[user.role === 'admin' ? 4 : 3] = el}>
+              {user.role === 'user' && (
+                <li ref={el => menuItemsRef.current[5] = el} onClick={toggleMenu}>
+                  <Link to="/student-register">Student Register</Link>
+                </li>
+              )}
+              <li ref={el => menuItemsRef.current[user.role === 'admin' ? 4 : 5] = el}>
                 <button onClick={logout}>Logout</button>
               </li>
             </>
           ) : (
             <>
-              <li ref={el => menuItemsRef.current[2] = el}>
+              <li ref={el => menuItemsRef.current[3] = el} onClick={toggleMenu}>
                 <Link to="/login">Login</Link>
               </li>
-              <li ref={el => menuItemsRef.current[3] = el}>
+              <li ref={el => menuItemsRef.current[4] = el} onClick={toggleMenu}>
                 <Link to="/register">Register</Link>
               </li>
             </>

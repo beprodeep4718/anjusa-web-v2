@@ -1,5 +1,5 @@
 import express from "express";
-import { register, login } from "../controllers/auth.controller.js";
+import { register, login, studentRegister } from "../controllers/auth.controller.js";
 import { authenticate } from "../middlewares/auth.middleware.js";
 
 const router = express.Router();
@@ -7,6 +7,7 @@ const router = express.Router();
 // Public routes
 router.post("/register", register);
 router.post("/login", login);
+router.post("/student/register", authenticate, studentRegister);
 
 // Protected routes
 router.post("/logout", authenticate, (req, res) => {
@@ -19,7 +20,11 @@ router.get("/verify", authenticate, (req, res) => {
     user: { 
       id: req.user._id,
       username: req.user.username, 
-      role: req.user.role 
+      role: req.user.role,
+      email: req.user.email,
+      createdAt: req.user.createdAt,
+      artworks: req.user.artworks || [],
+      profile: req.user.profile || null
     } 
   });
 });
