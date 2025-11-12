@@ -16,7 +16,8 @@ import UserManagement from '../../components/Admin/UserManagement'
 import AdminSettings from '../../components/Admin/AdminSettings'
 import ArtworkManagement from '../../components/Admin/ArtworkManagement'
 import PendingArtists from '../../components/Admin/PendingArtists'
-import StudentManagement from '../../components/Admin/studentManagement'
+import StudentManagement from '../../components/Admin/StudentManagement'
+
 
 const AdminDashboard = () => {
   const { notices, isFetchingNotices, fetchNotices, createNotice, deleteNotice, updateNotice } = useNoticeStore()
