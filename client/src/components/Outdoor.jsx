@@ -19,7 +19,7 @@ const Outdoor = () => {
         Explore our outdoor classes and immerse yourself in nature.
       </p>
       <div className="o-cont my-20 lg:px-4 py-6">
-        {outdoor.map((item, index) => (
+        {outdoor.toReversed().map((item, index) => (
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}

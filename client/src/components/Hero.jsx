@@ -5,6 +5,7 @@ import "swiper/css";
 import { ArrowUpRight } from "lucide-react";
 import CircularText from "./animation/CircularText";
 import { motion } from "motion/react";
+import { slideImages } from "../constants/images.js";
 
 const Hero = () => {
   return (
@@ -30,12 +31,12 @@ const Hero = () => {
           loop={true}
           className="w-[90vw] lg:w-[60vw] rounded-lg shadow-lg"
         >
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((i) => (
-            <SwiperSlide key={i}>
+          {slideImages.map((slide) => (
+            <SwiperSlide key={slide.id}>
               <div className="w-full h-44 lg:h-72 shadow-lg rounded-lg overflow-hidden">
                 <img
-                  src={`images/slide/img${i}.jpg`}
-                  alt={`Slide ${i}`}
+                  src={slide.path}
+                  alt={slide.alt}
                   className="w-full h-full object-cover object-center"
                 />
               </div>

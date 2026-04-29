@@ -30,7 +30,15 @@ const outdoor = [
         location: "Howrah, West Bengal 711202",
         coordinates: "22.627573207762396 ° N, 88.3556457324389 ° E",
         date: "12 Mar 2023"
-    }
+    },
+    {
+        id: 5,
+        title: "Brindavanchandra Temple",
+        image: "/images/outdoor/outdoor-5.jpeg",
+        location: "Brindavanchandra Temple, Guptipara, West Bengal 712512",
+        coordinates: "23.197244751450036 ° N, 88.44095486070492 ° E",
+        date: "24 April 2026"
+    },
 ];
 
 export default outdoor;
