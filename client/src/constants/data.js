@@ -39,6 +39,14 @@ const outdoor = [
         coordinates: "23.197244751450036 ° N, 88.44095486070492 ° E",
         date: "24 April 2026"
     },
-];
+    {
+        id: 5,
+        title: "Kolkata Kumartuli",
+        image: "/images/outdoor/outdoor-6.jpg",
+        location: "Kolkata, West Bengal 700001",
+        coordinates: "22.6000° N, 88.3614° E",
+        date: "23 Aug 2026"
+    },
+    ];
 
 export default outdoor;
